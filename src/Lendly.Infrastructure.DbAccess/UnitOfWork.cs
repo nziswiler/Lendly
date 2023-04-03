@@ -5,9 +5,11 @@ using Lendly.Infrastructure.DbAccess.Domain;
 
 namespace Lendly.Infrastructure.DbAccess
 {
-    internal class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly Context _context;
+        private bool _isDisposed;
+
         private IBookRepository bookRepository;
         private ICustomerRepository customerRepository;
         private ICategoryRepository categoryRepository;
@@ -18,57 +20,10 @@ namespace Lendly.Infrastructure.DbAccess
             _context = new Context();
         }
 
-        public IBookRepository BookRepository
-        {
-            get
-            {
-                if(this.bookRepository == null)
-                {
-                    this.bookRepository = new BookRepository(_context.Set<Book>());
-                }
-
-                return this.bookRepository;
-            }
-        }
-
-        public ICustomerRepository CustomerRepository
-        {
-            get
-            {
-                if (this.customerRepository == null)
-                {
-                    this.customerRepository = new CustomerRepository(_context.Set<Customer>());
-                }
-
-                return this.customerRepository;
-            }
-        }
-
-        public ICategoryRepository CategoryRepository
-        {
-            get
-            {
-                if (this.categoryRepository == null)
-                {
-                    this.categoryRepository = new CategoryRepository(_context.Set<Category>());
-                }
-
-                return this.categoryRepository;
-            }
-        }
-
-        public ILoanRepository LoanRepository
-        {
-            get
-            {
-                if (this.loanRepository == null)
-                {
-                    this.loanRepository = new LoanRepository(_context.Set<Loan>());
-                }
-
-                return this.loanRepository;
-            }
-        }
+        public IBookRepository BookRepository => this.bookRepository ?? new BookRepository(_context.Set<Book>());
+        public ICustomerRepository CustomerRepository => this.customerRepository ?? new CustomerRepository(_context.Set<Customer>());
+        public ICategoryRepository CategoryRepository => this.categoryRepository ?? new CategoryRepository(_context.Set<Category>());
+        public ILoanRepository LoanRepository => this.loanRepository ?? new LoanRepository(_context.Set<Loan>());
 
         public void Commit()
         {
@@ -77,7 +32,16 @@ namespace Lendly.Infrastructure.DbAccess
 
         public void Dispose()
         {
-            _context.Dispose();
+            Dispose(true);
+        }
+
+        protected virtual void Dispose(bool isDisposing)
+        {
+            if (isDisposing && !_isDisposed)
+            {
+                _isDisposed = true;
+                _context.Dispose();
+            }
         }
     }
 }
