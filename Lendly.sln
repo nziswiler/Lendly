@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lendly.Core", "src\Lendly.Core\Lendly.Core.csproj", "{04FEAD58-0F83-485C-9406-0D942F25BDE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lendly.Core", "src\Lendly.Core\Lendly.Core.csproj", "{04FEAD58-0F83-485C-9406-0D942F25BDE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lendly.Infrastructure.DbAccess", "src\Lendly.Infrastructure.DbAccess\Lendly.Infrastructure.DbAccess.csproj", "{4AE9E357-9652-4F40-89A1-4806139FB9E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lendly.Infrastructure.DbAccess", "src\Lendly.Infrastructure.DbAccess\Lendly.Infrastructure.DbAccess.csproj", "{4AE9E357-9652-4F40-89A1-4806139FB9E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lendly.UI.Console", "src\Lendly.UI.Console\Lendly.UI.Console.csproj", "{1DA1CDED-F721-4FC6-A6FF-2460D65E02A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lendly.UI.CommandLine", "src\Lendly.UI.Console\Lendly.UI.CommandLine.csproj", "{1DA1CDED-F721-4FC6-A6FF-2460D65E02A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
