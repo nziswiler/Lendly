@@ -11,5 +11,15 @@ namespace Lendly.Infrastructure.DbAccess.Domain
             : base(set)
         {
         }
+
+        public IEnumerable<Customer> GetAll()
+        {
+            return this.Get().OrderBy(e => e.VisibleIdentifier);
+        }
+
+        public Customer? GetByVisibleIdentifierOrDefault(int visibleIdentifier)
+        {
+            return this.GetQuery().FirstOrDefault(e => e.VisibleIdentifier.Equals(visibleIdentifier));
+        }
     }
 }

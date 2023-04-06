@@ -13,7 +13,7 @@ namespace Lendly.UI.CommandLine.Controller
 
             if (!IsUserInputANumber && menuPoint > 4 && menuPoint < 0)
             {
-                IndexController.ErrorMessage("Bitte gib eine Nummer von 1-4 an.");
+                IndexController.ErrorMessage("Bitte gib eine Nummer von 1-6 an.");
                 Menu();
                 return;
             }
@@ -43,7 +43,6 @@ namespace Lendly.UI.CommandLine.Controller
                 IndexController.Menu();
             }
         }
-
 
         private static void Add()
         {
@@ -160,7 +159,6 @@ namespace Lendly.UI.CommandLine.Controller
 
             ReturnToMenu();
         }
-
 
         private static void ReturnToMenu()
         {
