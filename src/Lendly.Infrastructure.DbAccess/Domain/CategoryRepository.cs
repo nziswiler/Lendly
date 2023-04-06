@@ -11,5 +11,15 @@ namespace Lendly.Infrastructure.DbAccess.Domain
             : base(set)
         {
         }
+
+        public Category? GetByNameOrDefault(string name)
+        {
+            return this.GetQuery().FirstOrDefault(e => e.Name.ToLower() == name.ToLower());
+        }
+
+        public IEnumerable<Category> GetByKeyword(string keyword)
+        {
+            return this.GetQuery().Where(e => e.Name.ToLower().Contains(keyword.ToLower()));
+        }
     }
 }

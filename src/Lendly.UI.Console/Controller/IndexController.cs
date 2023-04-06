@@ -6,10 +6,10 @@ namespace Lendly.UI.CommandLine.Controller
     {
         public IndexController()
         {
-            this.Menu();
+            Menu();
         }
 
-        private void Menu()
+        public static void Menu()
         {
             var userInput = IndexView.GetMainMenuInput();
             bool IsUserInputANumber = int.TryParse(userInput, out int menuPoint);
@@ -36,17 +36,22 @@ namespace Lendly.UI.CommandLine.Controller
             }
         }
 
-        private static void ErrorMessage(string message)
+        public static void ErrorMessage(string message)
         {
             IndexView.DisplayErrorMessage(message);
         }
 
-        private static void DisplaySuccessMessage(string message)
+        public static void SuccessMessage(string message)
         {
             IndexView.DisplaySuccessMessage(message);
         }
 
-        private static void CloseLendly()
+        public static void Information(string message)
+        {
+            IndexView.DisplayInformation(message);
+        }
+
+        public static void CloseLendly()
         {
             IndexView.DisplayClosingScreen();
             Environment.Exit(0);

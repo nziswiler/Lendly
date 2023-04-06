@@ -43,26 +43,31 @@
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("    Vielen Dank, dass Du Lendly verwendet hast!");
             Console.Write("    Hoffentlich bis bald. ");
-            ShowSpinner();
             Console.ResetColor();
         }
 
         public static void DisplayErrorMessage(string errorMessage)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("    Es ist ein Fehler aufgetreten!");
-            Console.Write("    " + errorMessage + " ");
-            ShowSpinner();
+            Console.WriteLine("    " + errorMessage + " ");
+
+            Console.WriteLine("    Drücke eine beliebige Taste um fortzufahren.");
+            Console.ReadKey();
             Console.ResetColor();
         }
 
         public static void DisplaySuccessMessage(string successMessage)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("    Der Vorgang war Erfolgreich!");
-            Console.Write("    " + successMessage + " ");
+            Console.WriteLine("    " + successMessage + " ");
             Console.ResetColor();
-            Console.ReadLine();
+        }
+
+        public static void DisplayInformation(string inforamtion)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("    " + inforamtion + " ");
+            Console.ResetColor();
         }
 
         public static void DisplayHeader()
@@ -73,24 +78,6 @@
             Console.WriteLine("    ############ Lendly #############");
             Console.WriteLine("    #################################\n");
             Console.ResetColor();
-        }
-
-        public static void ShowSpinner()
-        {
-            var counter = 0;
-            for (int i = 0; i < 30; i++)
-            {
-                switch (counter % 4)
-                {
-                    case 0: Console.Write("/"); break;
-                    case 1: Console.Write("-"); break;
-                    case 2: Console.Write("\\"); break;
-                    case 3: Console.Write("|"); break;
-                }
-                Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
-                counter++;
-                Thread.Sleep(100);
-            }
         }
     }
 }
