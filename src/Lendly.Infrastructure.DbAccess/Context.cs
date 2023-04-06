@@ -13,11 +13,11 @@ namespace Lendly.Infrastructure.DbAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Book>().HasKey(e => e.Id);
-            modelBuilder.Entity<Customer>().HasKey(e => e.Id);
-            modelBuilder.Entity<Loan>().HasKey(e => e.Id);
-            modelBuilder.Entity<Category>().HasKey(e => e.Id);
-
+            modelBuilder.Entity<Book>()
+                .HasKey(e => e.Id);
+            modelBuilder.Entity<Book>()
+                .Property(e => e.VisibleIdentifier)
+                .ValueGeneratedOnAdd();
             modelBuilder.Entity<Book>()
                 .HasOne(e => e.Category)
                 .WithMany(e => e.Books)
@@ -25,17 +25,29 @@ namespace Lendly.Infrastructure.DbAccess
                 .OnDelete(DeleteBehavior.NoAction)
                 .IsRequired();
 
+            modelBuilder.Entity<Customer>()
+                .HasKey(e => e.Id);
+            modelBuilder.Entity<Customer>()
+                .Property(e => e.VisibleIdentifier)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Loan>().HasKey(e => e.Id); 
+            modelBuilder.Entity<Loan>()
+                .Property(e => e.VisibleIdentifier)
+                .ValueGeneratedOnAdd();
             modelBuilder.Entity<Loan>()
                 .HasOne(e => e.Book)
                 .WithMany(e => e.Loans)
                 .HasForeignKey(e => e.BookId)
                 .OnDelete(DeleteBehavior.Restrict);
-
             modelBuilder.Entity<Loan>()
                 .HasOne(e => e.Customer)
                 .WithMany(e => e.Loans)
                 .HasForeignKey(e => e.CustomerId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Category>()
+                .HasKey(e => e.Id);
         }
     }
 }

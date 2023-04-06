@@ -2,6 +2,9 @@
 {
     public class Customer : EntityBase
     {
+        // VisibleIdentifier is used for a better usability in the CommandLine. Remove it when implementing the real user interface.
+        public int VisibleIdentifier { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
