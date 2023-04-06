@@ -14,12 +14,12 @@ namespace Lendly.Infrastructure.DbAccess.Domain
 
         public Category? GetByNameOrDefault(string name)
         {
-            return this.GetQuery().FirstOrDefault(e => e.Name.ToLower() == name.ToLower());
+            return this.GetQuery().FirstOrDefault(e => e.Name.Trim().ToLower() == name.Trim().ToLower());
         }
 
         public IEnumerable<Category> GetByKeyword(string keyword)
         {
-            return this.GetQuery().Where(e => e.Name.ToLower().Contains(keyword.ToLower()));
+            return this.GetQuery().Where(e => e.Name.Trim().ToLower().Contains(keyword.Trim().ToLower()));
         }
     }
 }

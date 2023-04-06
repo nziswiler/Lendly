@@ -19,12 +19,11 @@ namespace Lendly.UI.CommandLine.View
             return Console.ReadLine() ?? string.Empty;
         }
 
-
         public static string GetCustomerInput()
         {
             IndexView.DisplayHeader();
             Console.WriteLine($"   Neuer Kunde erfassen\n");
-            Console.WriteLine($"   Gewünschtes Format (Getrennt durch Semikolon ';' ): Vorname; Nachname; Adresse; Email; Telefon");
+            Console.WriteLine($"   Gewünschtes Format (Getrennt durch Semikolon ';' ): Vorname;Nachname;Adresse;Email;Telefon");
             Console.WriteLine("    ---------------------------------------------------------------------");
 
             return Console.ReadLine() ?? string.Empty;
@@ -54,21 +53,12 @@ namespace Lendly.UI.CommandLine.View
             }
         }
 
-        public static string GetKeyword()
-        {
-            IndexView.DisplayHeader();
-            Console.WriteLine("    Geben Sie den gewünschten Suchbegriff an:\n");
-            Console.WriteLine("    ---------------------------------------------------------------------");
-
-            return Console.ReadLine() ?? string.Empty;
-        }
-
         public static string GetEditInput(Customer customer)
         {
             IndexView.DisplayHeader();
-            Console.WriteLine($"   Kunde bearbeite:\n");
+            Console.WriteLine($"   Kunde bearbeiten:\n");
             Console.WriteLine($"   Bitte geben Sie alle Angaben erneut an. (Auch die, die sie nicht abändern wollen)");
-            Console.WriteLine($"   Gewünschtes Eingabeformat (Getrennt durch Semikolon ';' ): Vorname; Nachname; Adresse; Email; Telefon");
+            Console.WriteLine($"   Gewünschtes Eingabeformat (Getrennt durch Semikolon ';' ): Vorname;Nachname;Adresse;Email;Telefon\n");
             Console.WriteLine($"   Aktuelle Angaben: {customer.FirstName}; {customer.LastName}; {customer.Address}; {customer.Email};{customer.PhoneNumber}");
             Console.WriteLine("    ---------------------------------------------------------------------");
 

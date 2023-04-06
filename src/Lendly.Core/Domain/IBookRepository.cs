@@ -4,5 +4,8 @@ namespace Lendly.Core.Domain
 {
     public interface IBookRepository : IRepository<Book>
     {
+        IEnumerable<Book> GetAll();
+
+        Book? GetByVisibleIdentifierOrDefault(int visibleIdentifier);
     }
 }
