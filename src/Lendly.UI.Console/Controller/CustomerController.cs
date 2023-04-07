@@ -154,6 +154,14 @@ namespace Lendly.UI.CommandLine.Controller
                     return;
                 }
 
+                var loans = unitOfWork.LoanRepository.GetByCustomerId(visibleIdentifier);
+                if (loans.Any())
+                {
+                    IndexController.ErrorMessage("Dieser Kunde hat bereits ausleihen getätigt und kann nicht geläscht werden. Der Vorgang wurde abgebrochen.");
+                    Menu();
+                    return;
+                }
+
                 userInput = CustomerView.GetConfirmationAnswer(customer.VisibleIdentifier);
                 if (userInput.ToLower() == "ja")
                 {

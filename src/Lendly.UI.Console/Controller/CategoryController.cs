@@ -140,7 +140,15 @@ namespace Lendly.UI.CommandLine.Controller
                 if (category == null)
                 {
                     IndexController.ErrorMessage("Diese Kategorie existiert nicht!");
-                    Remove();
+                    Menu();
+                    return;
+                }
+
+                var isCategoryUsed = unitOfWork.BookRepository.IsCategoryUsed(userInput);
+                if (isCategoryUsed)
+                {
+                    IndexController.ErrorMessage("Diese Kategorie wird aktuell verwendet und kann dahe nicht gelöscht werden. Der Vorgang wurde abgebrochen");
+                    Menu();
                     return;
                 }
 

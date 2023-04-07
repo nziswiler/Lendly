@@ -7,5 +7,7 @@ namespace Lendly.Core.Domain
         IEnumerable<Book> GetAll();
 
         Book? GetByVisibleIdentifierOrDefault(int visibleIdentifier);
+
+        bool IsCategoryUsed(string category);
     }
 }

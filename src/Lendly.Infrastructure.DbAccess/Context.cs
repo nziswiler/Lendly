@@ -39,7 +39,7 @@ namespace Lendly.Infrastructure.DbAccess
                 .HasOne(e => e.Book)
                 .WithMany(e => e.Loans)
                 .HasForeignKey(e => e.BookId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<Loan>()
                 .HasOne(e => e.Customer)
                 .WithMany(e => e.Loans)

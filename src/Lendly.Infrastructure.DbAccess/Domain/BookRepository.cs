@@ -25,5 +25,10 @@ namespace Lendly.Infrastructure.DbAccess.Domain
                 .Include(e => e.Category)
                 .FirstOrDefault(e => e.VisibleIdentifier.Equals(visibleIdentifier));
         }
+
+        public bool IsCategoryUsed(string category)
+        {
+            return this.GetAll().FirstOrDefault(e => e.Category.Name.Trim().ToLower() == category.Trim().ToLower()) != null;
+        }
     }
 }
