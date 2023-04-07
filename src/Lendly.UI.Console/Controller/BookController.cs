@@ -40,7 +40,6 @@ namespace Lendly.UI.CommandLine.Controller
             }
         }
 
-
         private static void Add()
         {
             var userInput = BookView.GetBookInput();
