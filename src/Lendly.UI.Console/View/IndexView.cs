@@ -72,7 +72,7 @@
 
         public static void DisplayHeader()
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Clear();
             Console.WriteLine("    #################################");
             Console.WriteLine("    ############ Lendly #############");

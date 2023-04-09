@@ -2,7 +2,8 @@
 {
     public class Book : EntityBase
     {
-        // VisibleIdentifier is used for a better usability in the CommandLine. Remove it when implementing the real user interface.
+        // VisibleIdentifier is used for a better usability in the CommandLine.
+        // Remove it when implementing the real user interface.
         public int VisibleIdentifier { get; set; }
 
         public string Title { get; set; }

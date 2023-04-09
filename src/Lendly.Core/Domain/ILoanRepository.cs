@@ -6,7 +6,7 @@ namespace Lendly.Core.Domain
     {
         IEnumerable<Loan> GetAllPending();
 
-        IEnumerable<Loan> GetByCustomerId(int cutomerId);
+        IEnumerable<Loan> GetByCustomerId(int customerId);
 
         IEnumerable<Loan> GetByBookId(int bookId);
 
